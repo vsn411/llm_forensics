@@ -9,8 +9,8 @@ This is a lightweight, fast Model Context Protocol (MCP) server to store, search
 ### Step 1: Clone the GitHub Repository
 
 ```bash
-git clone https://github.com/your-username/mcp-trace-server.git
-cd mcp-trace-server
+git clone https://github.com/vsn411/llm_forensics.git
+cd llm_forensics
 ```
 
 ### Step 2: Create and Activate a Virtual Environment
@@ -30,7 +30,7 @@ pip install -r requirements.txt
 
 ## 🧑‍💻 Claude Desktop Client Setup (Optional for GUI Testing)
 
-1. Download the [Claude Desktop Client](https://github.com/jmorganca/ollama-desktop) or any LLM desktop interface that supports tool plugins.
+1. Download the [Claude Desktop Client] or any LLM desktop interface that supports tool plugins.
 2. Ensure the client is allowed to use local tool endpoints.
 
 ---
@@ -100,22 +100,3 @@ Tool call (automatically handled if integrated via Claude Desktop):
 
 ---
 
-## 📂 Project Structure
-
-```
-mcp-trace-server/
-│
-├── mcp_server.py           # Main entry point
-├── core/
-│   ├── db.py               # SQLite DB logic
-│   └── routes.py           # MCP tools (store, search, retrieve, export)
-├── llm_traces.db           # SQLite DB (auto-generated)
-├── requirements.txt
-└── README.md
-```
-
----
-
-## 📜 License
-
-MIT License. Feel free to fork and enhance it for your AI ops and compliance needs.
