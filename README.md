@@ -1,74 +1,121 @@
+# LLM Trace Server (MCP Server)
 
-# 🛡️ MCP Server for LLM Auditability & Forensics
-
-This server implements the **Model Context Protocol (MCP)** to enable audit logging, traceability, and forensic analysis of LLM interactions. It supports storing traces, searching historical activity, and integrating with the Claude Desktop client for local testing and demonstrations.
+This is a lightweight, fast Model Context Protocol (MCP) server to store, search, retrieve, and export LLM traces. Ideal for audit logging and forensic analysis of AI interactions.
 
 ---
 
-## ✅ Setup Instructions
+## 🛠️ Installation Steps
 
-### 🥇 Step 1: Download this Git repository
+### Step 1: Clone the GitHub Repository
 
 ```bash
-git clone https://github.com/<your-username>/mcp-server.git
-cd mcp-server
+git clone https://github.com/your-username/mcp-trace-server.git
+cd mcp-trace-server
+```
 
-🥈 Step 2: Create a Python virtual environment
+### Step 2: Create and Activate a Virtual Environment
 
+```bash
 python -m venv venvmcp
+source venvmcp/bin/activate  # On Windows use: venvmcp\Scripts\activate
+```
 
-Activate the virtual environment:
+### Step 3: Install Python Dependencies
 
-On macOS/Linux:
-
-source venvmcp/bin/activate
-
-On Windows:
-
-venvmcp\Scripts\activate
-
-🥉 Step 3: Install required Python dependencies
-
+```bash
 pip install -r requirements.txt
+```
 
-🏗️ Step 4: Install Claude Desktop MCP Client
+---
 
-Download and install Claude Desktop from: https://claude.ai/download
+## 🧑‍💻 Claude Desktop Client Setup (Optional for GUI Testing)
 
-Launch the app and go to:
+1. Download the [Claude Desktop Client](https://github.com/jmorganca/ollama-desktop) or any LLM desktop interface that supports tool plugins.
+2. Ensure the client is allowed to use local tool endpoints.
 
-Settings > Plugins > Enable MCP Support
+---
 
-🛠️ Step 5: Install the MCP Server
+## 🚀 Run the MCP Server
 
-Run the following command from the root directory:
+```bash
+python mcp_server.py
+```
 
-mcp install mcp_server.py
+> The server will initialize an SQLite database named `llm_traces.db` and expose tools via MCP.
 
-This registers your local MCP server with the Claude Desktop client.
+---
 
-🧪 Step 6: Open Claude Desktop Client to Test
+## 🧪 Example Usage with Claude Desktop Client
 
-Once Claude is running and the MCP server is installed, you can test interactions.
+### 📝 Example 1: Store a Trace
 
-✅ Example 1: Store a Trace
+Prompt:
 
-Use the following input to simulate a trace being stored:
+```text
+how to make pasta sauce
+```
 
+Response:
+
+```text
+- Tomatoes
+- Olive oil
+- Garlic
+- Basil
+- Salt
+- Pepper
+```
+
+Tool call (automatically handled if integrated via Claude Desktop):
+
+```json
 {
-  "action": "store",
-  "trace": {
-    "user_prompt": "how to make pasta sauce",
-    "model_response": "1. Tomatoes\n2. Garlic\n3. Olive oil\n4. Salt\n5. Basil"
+  "tool": "store_trace",
+  "args": {
+    "prompt": "how to make pasta sauce",
+    "response": "Tomatoes, olive oil, garlic, basil, salt, pepper"
   }
 }
-✅ Example 2: Search a Trace
+```
 
-Use this input to search for previously stored traces:
+### 🔍 Example 2: Search Traces
 
+```json
 {
-  "action": "search",
-  "query": "pasta sauce"
+  "tool": "search_traces",
+  "args": {
+    "query": "pasta sauce"
+  }
 }
-You should see relevant traces displayed inside Claude Desktop.
+```
 
+### 📄 Example 3: Export Traces to CSV
+
+```json
+{
+  "tool": "export_traces_to_csv",
+  "args": {}
+}
+```
+
+---
+
+## 📂 Project Structure
+
+```
+mcp-trace-server/
+│
+├── mcp_server.py           # Main entry point
+├── core/
+│   ├── db.py               # SQLite DB logic
+│   └── routes.py           # MCP tools (store, search, retrieve, export)
+├── llm_traces.db           # SQLite DB (auto-generated)
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## 📜 License
+
+MIT License. Feel free to fork and enhance it for your AI ops and compliance needs.
