@@ -30,7 +30,7 @@ pip install -r requirements.txt
 
 ## 🧑‍💻 Claude Desktop Client Setup (Optional for GUI Testing)
 
-1. Download the [Claude Desktop Client] or any LLM desktop interface that supports tool plugins.
+1. Download the [Claude Desktop Client](https://claude.ai/download) or any LLM desktop interface that supports tool plugins.
 2. Ensure the client is allowed to use local tool endpoints.
 
 ---
@@ -39,6 +39,11 @@ pip install -r requirements.txt
 
 ```bash
 python mcp_server.py
+```
+
+or
+```bash
+mcp install mcp_server.py
 ```
 
 > The server will initialize an SQLite database named `llm_traces.db` and expose tools via MCP.
