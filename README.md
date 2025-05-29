@@ -2,6 +2,9 @@
 
 This is a lightweight, fast Model Context Protocol (MCP) server to store, search, retrieve, and export LLM traces. Ideal for audit logging and forensic analysis of AI interactions.
 
+
+![image](https://github.com/user-attachments/assets/0fa0932e-64b7-4924-96c0-0cb30336ca2b)
+
 ---
 
 ## 🛠️ Installation Steps
@@ -105,7 +108,8 @@ Tool call (automatically handled if integrated via Claude Desktop):
 
 ---
 
-![image](https://github.com/user-attachments/assets/cc88f98c-5122-40ca-8c54-72d95545a12d)
+
+
 
 
 
