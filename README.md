@@ -57,22 +57,7 @@ mcp install mcp_server.py
 
 ### 📝 Example 1: Store a Trace
 
-Prompt:
-
-```text
-how to make pasta sauce
-```
-
-Response:
-
-```text
-- Tomatoes
-- Olive oil
-- Garlic
-- Basil
-- Salt
-- Pepper
-```
+Store a trace with prompt as "how to make pasta sauce" and response as "here are instructions to make it"
 
 Tool call (automatically handled if integrated via Claude Desktop):
 
