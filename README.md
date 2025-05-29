@@ -105,3 +105,7 @@ Tool call (automatically handled if integrated via Claude Desktop):
 
 ---
 
+![image](https://github.com/user-attachments/assets/cc88f98c-5122-40ca-8c54-72d95545a12d)
+
+
+
